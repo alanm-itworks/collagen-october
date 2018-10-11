@@ -1,0 +1,26 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: $base-font__family--primary;
+  background: $white;
+}
+
+.section-cta {
+  text-align: center;
+}
+
+.section-cta__btn {
+  width: 100%;
+  display: block;
+  padding: 2rem 0;
+
+  @include breakpointLargerThan($breakpoint--medium) {
+    display: inline-block;
+    width: auto;
+    padding: 1rem 4rem;
+    margin-top: 3rem;
+  }
+}

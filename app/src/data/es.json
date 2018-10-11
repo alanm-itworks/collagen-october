@@ -1,0 +1,17 @@
+{
+  "hero": {
+    "image": "pac-collagen-us-p-001-d4-shadow.png",
+    "heading": "gran piel desde dentro",
+    "message": "Tenemos un enamoramiento tropical por nuestra nueva fórmula para la estimulación de la belleza, ¿tú también? ¡It Works! CollagenWorks™ nos mantiene radiantes! ¡Regístrate aquí para descubrir todos los detalles jugosos!"
+  },
+  "promo": {
+    "button": "Vistazo",
+    "video": "//www.youtube.com/watch?v=Qe4WJrUG4Mw?rel=0&amp;showinfo=0"
+  },
+  "form": {
+    "success": "¡Éxito! ¡Agárrate fuerte, todos los detalles jugosos sobre It Works! ¡CollagenWorks™ se acerca!",
+    "error": "Ingresa una dirección de correo electrónico válida",
+    "placeholder": "Tu correo electrónico",
+    "cta": "Registrarse"
+  }
+}

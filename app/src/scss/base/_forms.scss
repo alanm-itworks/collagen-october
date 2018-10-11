@@ -1,0 +1,29 @@
+input {
+  padding: .75rem 1rem;
+  color: $black;
+  border: none;
+  -webkit-appearance: none;
+}
+
+input[type=submit] {
+  border: none;
+}
+
+select {
+  border: 1px solid $wild-sand;
+  color: $black;
+  height: 30px;
+}
+
+label {
+  display: block;
+  text-transform: capitalize;
+}
+
+.disabled {
+  color: $wild-sand;
+}
+
+.updated {
+  background: $green;
+}

@@ -1,0 +1,64 @@
+{
+ "name": "itworks-collagen",
+ "version": "1.0.1",
+ "description": "collagen landing page",
+ "license": "MIT",
+ "repository": {
+  "type": "git",
+  "url": "itworks.com"
+ },
+ "devDependencies": {
+  "browserify": "^14.5.0",
+  "browserify-shim": "^3.8.14",
+  "del": "^3.0.0",
+  "gulp": "^3.9.1",
+  "gulp-autoprefixer": "^4.0.0",
+  "gulp-cache": "^1.0.1",
+  "gulp-imagemin": "^4.0.0",
+  "gulp-inject": "^4.3.0",
+  "gulp-inline-css": "^3.1.2",
+  "gulp-inline-source": "^3.1.0",
+  "gulp-jshint": "^2.0.4",
+  "gulp-minify-css": "^1.2.4",
+  "gulp-notify": "^3.0.0",
+  "gulp-rename": "^1.2.2",
+  "gulp-replace": "^0.6.1",
+  "gulp-ruby-sass": "^2.1.1",
+  "gulp-uglify": "^3.0.0",
+  "handlebars": "^4.0.11",
+  "stream-series": "^0.1.1"
+ },
+ "main": "gulpfile.js",
+ "scripts": {
+  "start": "gulp serve",
+  "build": "gulp build"
+ },
+ "author": "",
+ "dependencies": {
+  "@fancyapps/fancybox": "^3.3.5",
+  "bedrock-css": "0.0.2",
+  "express": "^4.16.0",
+  "gulp-browserify": "^0.5.1",
+  "gulp-open": "^2.1.0",
+  "gulp-sass": "^3.1.0",
+  "jquery": "^3.2.1",
+  "require-dir": "^0.3.2"
+ },
+ "browserify": {
+  "transform": [
+   "browserify-shim"
+  ]
+ },
+ "browser": {
+  "jquery": "./node_modules/jquery/dist/jquery.js",
+  "handlebars": "./node_modules/handlebars/dist/handlebars.js"
+ },
+ "browserify-shim": {
+  "jquery": {
+   "exports": "$"
+  },
+  "handlebars": {
+   "exports": "Handlebars"
+  }
+ }
+}

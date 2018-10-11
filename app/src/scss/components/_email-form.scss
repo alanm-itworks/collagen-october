@@ -1,0 +1,60 @@
+.email-form {
+  position: relative;
+  text-align: center;
+}
+
+.email-form__email {
+  position: relative;
+}
+
+.email-form__input {
+  @include borderRadius(99px);
+  @include boxShadow(0 2px 44px rgba(80,92,139,0.08));
+  position: relative;
+  width: 100%;
+  padding: 18px 20px;
+  border: none;
+  outline: none;
+  border: 1px solid $grey--light;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  @include inputPlaceholder() {
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    opacity: 0.6;
+  };
+}
+
+.email-form__button {
+  @include borderRadius(99px);
+  @include gradientLinear(45deg, $iwgreen, #6FD13B);
+  @include font-size(14px);
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 0 20px;
+  outline: none;
+  border: none;
+  color: $white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+%form-messages {
+  font-weight: 400;
+  line-height: 1.5
+}
+
+.email-form__success {
+  @extend %form-messages;
+  color: $iwgreen;
+}
+
+.email-form__error {
+  @extend %form-messages;
+  color: $red;
+  margin-top: 10px;
+}

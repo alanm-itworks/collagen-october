@@ -1,0 +1,27 @@
+.hidden--sm {
+  @include breakpointSmallerThan($breakpoint--small) {
+    display: none;
+  }
+}
+
+.hidden--md {
+  @include breakpointSmallerThan($breakpoint--medium) {
+    display: none;
+  }
+}
+
+.hidden--lg {
+  @include breakpointLargerThan($breakpoint--medium) {
+    display: none;
+  }
+}
+
+.gradient1 {
+  @include gradientLinear(135deg, #0EC1A4, #C9D419);
+}
+.gradient2 {
+  @include gradientLinear(135deg, #39D0B7, #7ECF48);
+}
+.gradient3 {
+  @include gradientLinear(135deg, #4FCF76, #DFE110);
+}

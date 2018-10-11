@@ -1,0 +1,185 @@
+button {
+  border: none;
+}
+
+.btn {
+  @include borderRadius(2px);
+  @include transition($base-animation__speed all);
+
+  font-family: $base-font__family--primary + '-bold', arial, sans-serif;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  padding: 1rem 1.5rem;
+  outline: none;
+
+  @include breakpointSmallerThan($breakpoint--small) {
+    @include font-size(4vmin, $base-font__size);
+  }
+
+  @include breakpointLargerThan($breakpoint--small) {
+    @include font-size(14px);
+  }
+}
+
+.btn-solid--primary {
+  @extend .btn;
+  @include gradientLinear(135deg, $WTF1Teal, $WTF1Green);
+  color: $white;
+  font-weight: 700;
+
+  &:hover {
+    @include scale(1.04);
+    color: $white;
+  }
+
+  &:active, &:focus {
+    color: $white;
+  }
+}
+
+.btn-solid--secondary {
+  @extend .btn;
+
+  background: $WTF1Teal;
+  color: $white;
+
+  &:hover {
+    @include scale(1.04);
+    color: $white;
+  }
+
+  &:active {
+    color: $white;
+  }
+}
+
+.btn-outline {
+  @extend .btn;
+
+  padding: .75rem 1rem;
+  border-width: 2px;
+  border-style: solid;
+  font-weight: 800;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.btn-outline--primary {
+  @extend .btn-outline;
+
+  border-color: $white;
+  color: $white;
+  background: transparent;
+
+  &:hover {
+    @include scale(1.06);
+  }
+}
+
+.btn-outline--secondary {
+  @extend .btn-outline;
+
+  border-color: $green;
+  color: $green;
+
+  &:hover {
+    @include scale(1.06);
+  }
+}
+
+.btn-outline__ico {
+  padding-left: 1rem;
+}
+
+// animated buttons
+
+.btn-animation--arrows {
+  span {
+    font-family: $base-font__family--primary + '-bold', arial, sans-serif;
+    display: inline-block;
+    position: relative;
+    transition: $base-animation__speed;
+
+    &:after {
+      @include font-size(20px);
+
+      content: '»';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -10px;
+      transition: 0.5s;
+      line-height: .8;
+      vertical-align: top;
+    }
+  }
+
+  &:hover {
+    background: $green;
+    color: $black;
+
+    span {
+      padding-right: 20px;
+
+      &:after {
+        opacity: 1;
+        right: 0px;
+      }
+    }
+  }
+}
+
+.btn-animation--flip {
+  @include borderRadius(99px);
+
+  position: relative;
+  overflow: hidden;
+  height: 50px;
+  width: 200px;
+  display: inline-block;
+  text-align: center;
+
+  span {
+    font-family: $base-font__family--primary + '-bold', arial, sans-serif;
+    position: absolute;
+    transition: top .3s;
+    -moz-transition: top .3s;
+    -webkit-transition: top .3s;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    line-height: 2.6;
+  }
+
+  .front {
+    top: 0;
+  }
+
+  .back {
+    top: -100px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &:hover {
+    background: $green;
+
+    .front {
+      top: 100px;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .back {
+      top: 0;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

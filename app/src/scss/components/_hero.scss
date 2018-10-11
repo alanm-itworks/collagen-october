@@ -1,0 +1,67 @@
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.hero__packaging {
+  width: 120px;
+
+  @include breakpointLargerThan($breakpoint--medium) {
+    display: none;
+  }
+}
+
+.hero__form {
+  margin-top: 20px;
+}
+
+.packaging-display {
+  display: none;
+
+  @include breakpointLargerThan($breakpoint--medium) {
+    height: 545px;
+    overflow: hidden;
+    display: block;
+
+    video {
+      height: 545px;
+    }
+  }
+}
+
+.hero__heading {
+  @include font-size(38px);
+  text-transform: uppercase;
+  margin: 15px 0;
+
+  @include breakpointLargerThan($breakpoint--medium) {
+    @include font-size(55px);
+  }
+}
+
+.promo-button {
+  @include borderRadius(99px);
+  @include transition(all $base-animation--speed ease-in-out);
+  padding: 8px 27px 8px 18px;
+  border: 1px solid $grey--light;
+  box-sizing: border-box;
+  margin-top: 20px;
+  display: inline-block;
+  background: transparent;
+  cursor: pointer;
+
+  &:hover {
+    @include scale(1.06);
+    @include boxShadow(0 2px 20px rgba(80,92,139,0.08));
+  }
+}
+
+.promo-button__icon {
+  width: 40px;
+  vertical-align: middle;
+}
+
+.promo-button__label {
+  text-transform: capitalize;
+}

@@ -1,0 +1,57 @@
+.site-header {
+  @include cf();
+  background: $white;
+  padding: 1rem 0;
+}
+
+.site-header__button {
+  vertical-align: middle;
+  display: inline-block;
+  float: right;
+}
+
+.site-header__logo {
+  vertical-align: middle;
+  float: left;
+}
+
+.language-select {
+  float: right;
+  line-height: 40px;
+
+  span {
+    opacity: 0.2;
+  }
+
+}
+
+.language-select__link {
+  @include transition(all $base-animation--speed ease-in);
+
+  color: $black;
+  font-weight: 800;
+  padding: 0 8px;
+  text-transform: uppercase;
+  opacity: 0.2;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.4;
+    color: $black;
+  }
+
+  &:active, &:focus {
+    color: $black;
+  }
+
+  &.active {
+    @include borderRadius(99px);
+    opacity: 1;
+    background: $grey--light;
+    padding: 8px 20px;
+  }
+
+  &.disabled {
+    opacity: 0.2;
+  }
+}

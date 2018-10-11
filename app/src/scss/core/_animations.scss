@@ -1,0 +1,305 @@
+///////////////////////////////
+/// ANIMATION HELPERS
+///////////////////////////////
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+///////////////////////////////
+/// ANIMATIONS
+///////////////////////////////
+
+@include keyframes(hamburger-top-in) {
+  0% {
+    @include rotate(0);
+    top: -6px;
+  }
+  50% {
+    @include rotate(0);
+    top: 0;
+  }
+  100% {
+    @include rotate(45);
+    top: 0;
+  }
+}
+
+@include keyframes(hamburger-top-out) {
+  0% {
+    @include rotate(45);
+    top: 0;
+  }
+  50% {
+    @include rotate(0);
+    top: 0;
+  }
+  100% {
+    @include rotate(0);
+    top: -6px;
+  }
+}
+
+@include keyframes(hamburger-bottom-in) {
+  0% {
+    @include rotate(0);
+    bottom: -6px;
+  }
+  50% {
+    @include rotate(0);
+    bottom: 0;
+  }
+  100% {
+    @include rotate(-45);
+    bottom: 0;
+  }
+}
+
+@include keyframes(hamburger-bottom-out) {
+  0% {
+    @include rotate(-45);
+    bottom: 0;
+  }
+  50% {
+    @include rotate(0);
+    bottom: 0;
+  }
+  100% {
+    @include rotate(0);
+    bottom: -6px;
+  }
+}
+
+@mixin slide($startVal, $endVal) {
+  @include animation('slide 0.5s 1');
+
+  @include keyframes(slide) {
+    0% { height: $startVal; }
+    100% { height: $endVal; }
+  }
+}
+
+@mixin fade($startVal, $endVal) {
+  @include animation('fade 0.5s 1');
+
+  @include keyframes(fade) {
+    0% { opacity: $startVal; }
+    100% { opacity: $endVal; }
+  }
+}
+
+@mixin hamburger-rotate-top() {
+  @include keyframes(hamburger-top) {
+    0% {
+      @include rotate(0);
+      top: -6px;
+    }
+    50% {
+      @include rotate(0);
+      top: 0;
+    }
+    100% {
+      @include rotate(45);
+      top: 0;
+    }
+  }
+}
+
+@mixin hamburger-rotate-bottom() {
+  @include keyframes(hamburger-bottom) {
+    0% {
+      @include rotate(0);
+      bottom: -6px;
+    }
+    50% {
+      @include rotate(0);
+      bottom: 0;
+    }
+    100% {
+      @include rotate(-45);
+      bottom: 0;
+    }
+  }
+}
+
+@mixin rotating() {
+  @include animation('rotating 6s linear infinite');
+
+  @include keyframes(rotating) {
+    0% {
+      @include rotate(0);
+    }
+    100% {
+      @include rotate(360);
+    }
+  }
+}
+
+@mixin wheelspin1() {
+  @include animation('wheelspin1 6s linear');
+  @include rotate(3200);
+
+  @include keyframes(wheelspin1) {
+    0% {
+      @include rotate(0);
+    }
+    9% {
+      @include rotate(-45);
+    }
+    25% {
+      @include rotate(1900);
+    }
+    35% {
+      @include rotate(2700);
+    }
+    45% {
+      @include rotate(2900);
+    }
+    55% {
+      @include rotate(3100);
+    }
+    70% {
+      @include rotate(3200);
+    }
+    100% {
+      @include rotate(3200);
+    }
+  }
+}
+
+@mixin wheelspin2() {
+  @include animation('wheelspin2 6s linear');
+  @include rotate(4200);
+
+  @include keyframes(wheelspin2) {
+    0% {
+      @include rotate(0);
+    }
+    9% {
+      @include rotate(-45);
+    }
+    25% {
+      @include rotate(2900);
+    }
+    35% {
+      @include rotate(3700);
+    }
+    45% {
+      @include rotate(3900);
+    }
+    55% {
+      @include rotate(4100);
+    }
+    70% {
+      @include rotate(4200);
+    }
+    100% {
+      @include rotate(4200);
+    }
+  }
+}
+
+@mixin wheelspin3() {
+  @include animation('wheelspin3 6s linear');
+  @include rotate(2300);
+
+  @include keyframes(wheelspin3) {
+    0% {
+      @include rotate(0);
+    }
+    9% {
+      @include rotate(-45);
+    }
+    25% {
+      @include rotate(1000);
+    }
+    35% {
+      @include rotate(1800);
+    }
+    45% {
+      @include rotate(2000);
+    }
+    55% {
+      @include rotate(2200);
+    }
+    70% {
+      @include rotate(2300);
+    }
+    100% {
+      @include rotate(2300);
+    }
+  }
+}
+
+@mixin wheelspin4() {
+  @include animation('wheelspin4 6s linear');
+  @include rotate(2750);
+
+  @include keyframes(wheelspin4) {
+    0% {
+      @include rotate(0);
+    }
+    9% {
+      @include rotate(-45);
+    }
+    25% {
+      @include rotate(1550);
+    }
+    35% {
+      @include rotate(2350);
+    }
+    45% {
+      @include rotate(2550);
+    }
+    55% {
+      @include rotate(2650);
+    }
+    70% {
+      @include rotate(2750);
+    }
+    100% {
+      @include rotate(2750);
+    }
+  }
+}
+
+
+///////////////////////////////
+/// TRANSITIONS
+///////////////////////////////
+
+
+@mixin transition($transition, $transition2:"") {
+  @if($transition2 != "") {
+    transition: $transition, $transition2;
+    -moz-transition: $transition, $transition2;
+    -webkit-transition: $transition, $transition2;
+  } @else {
+    transition: $transition;
+    -moz-transition: $transition;
+    -webkit-transition: $transition;
+  }
+
+}

@@ -1,0 +1,51 @@
+// slick overrides
+
+.slick-slide {
+  outline: none;
+  text-align: center;
+}
+
+.slick-dots {
+  left: 0;
+  bottom: -30px;
+
+  li {
+    button {
+      &:before, &:after {
+        @include font-size(16px);
+      }
+
+      &:before {
+        color: $grey;
+      }
+    }
+
+    &.slick-active {
+      button {
+        &:before {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.slick-arrows {
+  z-index: 9999;
+
+  &:before {
+    color: $white;
+  }
+}
+
+.slick-next {
+  @extend .slick-arrows;
+
+  right: 10px;
+}
+
+.slick-prev {
+  @extend .slick-arrows;
+
+  left: 10px;
+}

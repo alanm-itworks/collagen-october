@@ -1,0 +1,261 @@
+///////////////////////////////
+/// BREAKPOINT HELPERS
+///////////////////////////////
+
+@mixin breakpoint($breakpoint, $type: 'max') {
+  @media (#{$type}-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin breakpointBetween($fromBreakpoint, $toBreakpoint) {
+  @media (min-width: $fromBreakpoint) and (max-width: $toBreakpoint - 1) {
+    @content;
+  }
+}
+
+@mixin breakpointSmallerThan($breakpoint) {
+  @include breakpoint($breakpoint - 1, 'max') {
+    @content;
+  }
+}
+
+@mixin breakpointLargerThan($breakpoint) {
+  @include breakpoint($breakpoint, 'min') {
+    @content;
+  }
+}
+
+///////////////////////////////
+/// FONT HELPERS
+///////////////////////////////
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size, $vw:"") {
+  @if($vw != "") {
+    font-size: $vw;
+    font-size: calculateRem($vw);
+    font-size: $size;
+
+  } @else {
+    font-size: $size;
+    font-size: calculateRem($size);
+  }
+}
+
+@mixin font-face($style-name, $file, $family, $font-weight, $category:"") {
+    $filepath: "../fonts/" + $family + "/" + $file;
+    @font-face {
+        font-weight: $font-weight;
+        font-family: "#{$style-name}";
+        src: url($filepath + ".ttf");
+        src: url($filepath + ".eot?#iefix") format('embedded-opentype'), url($filepath + ".woff") format('woff'), url($filepath + ".ttf")  format('truetype'), url($filepath + ".svg#" + $style-name + "") format('svg');
+    }
+    %#{$style-name} {
+        font: {
+            @if $category != "" {
+                family: "#{$style-name}", #{$category};
+            }
+            @else {
+                family: "#{$style-name}";
+                weight: normal;
+            }
+        }
+    }
+}
+
+
+///////////////////////////////
+/// TRANSFORM HELPERS
+///////////////////////////////
+
+@mixin centerHorizontal() {
+  top: 50%;
+  transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+
+@mixin centerVertical() {
+  left: 50%;
+  transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+
+@mixin centerAll() {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+}
+
+@mixin rotate($deg) {
+  -webkit-transform: rotate($deg + deg);
+  -moz-transform: rotate($deg + deg);
+  -ms-transform: rotate($deg + deg);
+  -o-transform: rotate($deg + deg);
+  transform: rotate($deg + deg);
+}
+
+@mixin scale($amount) {
+  -webkit-transform: scale($amount);
+  -moz-transform: scale($amount);
+  -ms-transform: scale($amount);
+  -o-transform: scale($amount);
+  transform: scale($amount);
+}
+
+@mixin translate3d($pos1, $pos2, $pos3) {
+  transform: translate3d($pos1, $pos2, $pos3);
+  -moz-transform: translate3d($pos1, $pos2, $pos3);
+  -webkit-transform: translate3d($pos1, $pos2, $pos3);
+}
+
+
+///////////////////////////////
+/// STYLE HELPERS
+///////////////////////////////
+
+@mixin gradientLinear ($angle, $colorOne, $colorTwo, $colorThree:"") {
+  @if $colorThree != "" {
+    background: $colorTwo;
+    background: -webkit-linear-gradient($angle, $colorOne, $colorThree, $colorTwo);
+    background: -o-linear-gradient($angle, $colorOne, $colorThree, $colorTwo);
+    background: -moz-linear-gradient($angle, $colorOne, $colorThree, $colorTwo);
+    background: linear-gradient($angle, $colorOne, $colorThree, $colorTwo);
+  } @else {
+    background: $colorTwo;
+    background: -webkit-linear-gradient($angle, $colorOne, $colorTwo);
+    background: -o-linear-gradient($angle, $colorOne, $colorTwo);
+    background: -moz-linear-gradient($angle, $colorOne, $colorTwo);
+    background: linear-gradient($angle, $colorOne, $colorTwo);
+  }
+}
+
+@mixin boxShadow($amount: $base-box-shadow, $inset: false) {
+ @if($inset) {
+   box-shadow: inset $amount;
+   -moz-box-shadow: inset $amount;
+   -webkit-box-shadow: inset $amount;
+ } @else {
+   box-shadow: $amount;
+   -moz-box-shadow: $amount;
+   -webkit-box-shadow: $amount;
+ }
+
+}
+
+@mixin borderRadius($radius, $direction:"") {
+  @if($direction != "") {
+    border-#{$direction}-radius: $radius;
+    -moz-border-#{$direction}-radius: $radius;
+    -webkit-border-#{$direction}-radius: $radius;
+  } @else {
+    border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+  }
+}
+
+@mixin slantBottom($amount) {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 $amount);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 $amount);
+}
+
+@mixin overlay($color, $opacity) {
+  content: "";
+  display: block;
+  position: absolute;
+  background: $color;
+  opacity: $opacity;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+///////////////////////////////
+/// ARROW HELPERS
+///////////////////////////////
+
+@mixin arrow() {
+  width: 0;
+  height: 0;
+  position: absolute;
+  content: "";
+  display: block;
+}
+
+@mixin arrowUp($size, $color) {
+  @include arrow();
+
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+  border-bottom: $size solid $color;
+}
+
+@mixin arrowDown($size, $color) {
+  @include arrow();
+
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+  border-top: $size solid $color;
+}
+
+@mixin arrowLeft($size, $color) {
+  @include arrow();
+
+  border-top: $size solid transparent;
+  border-bottom: $size solid transparent;
+  border-right:$size solid $color;
+}
+
+@mixin arrowRight($size, $color) {
+  @include arrow();
+
+  border-top: $size solid transparent;
+  border-bottom: $size solid transparent;
+  border-left: $size solid $color;
+}
+
+@mixin inputPlaceholder() {
+    $selector: '';
+    $prefixes: (
+        moz: "::-moz",
+        webkit: "::-webkit",
+        ie: ":-ms"
+    );
+    @each $prop, $value in $prefixes {
+        @if $prop != "moz" {
+            $selector: #{$value}-input-placeholder;
+        } @else {
+            $selector: #{$value}-placeholder;
+        }
+        @if & {
+            &#{$selector} {
+                @content;
+            }
+        } @else {
+            #{$selector} {
+                @content;
+            }
+        }
+    }
+    &::placeholder {
+      @content;
+    }
+}
+
+// target IE only
+@mixin target-ie {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}

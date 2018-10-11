@@ -1,0 +1,17 @@
+{
+  "hero": {
+    "image": "pac-collagen-us-p-001-d4-shadow.png",
+    "heading": "great skin from within",
+    "message": "We have a Tropical Crush on our new beauty boosting formula, do you have one too? It Works! CollagenWorks™ has us glowing!"
+  },
+  "promo": {
+    "button": "sneak peek",
+    "video": "//www.youtube.com/watch?v=Qe4WJrUG4Mw?rel=0&amp;showinfo=0"
+  },
+  "form": {
+    "success": "Success! Hold tight, all the juicy details about It Works! CollagenWorks™ are coming your way!",
+    "error": "Please enter a valid email address",
+    "placeholder": "your email",
+    "cta": "sign up"
+  }
+}

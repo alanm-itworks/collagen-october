@@ -1,0 +1,33 @@
+////////////////////////////////////
+// It Works! WTF
+// v1.0
+// Author: Drew Roberts
+////////////////////////////////////
+
+// core
+@import "core/mixins";
+@import "core/animations";
+@import "core/config";
+@import "core/colors";
+
+// vendor
+@import './node_modules/bedrock-css/src/scss/bedrock';
+@import "vendor/lity";
+@import "vendor/fancybox";
+$fancybox-image-url: $img-path;
+
+// base
+@import "base/buttons";
+@import "base/fonts";
+@import "base/helpers";
+@import "base/reset";
+@import "base/sliders";
+@import "base/typography";
+
+// components
+@import "components/site-header";
+@import "components/hero";
+@import "components/email-form";
+@import "components/about";
+
+@import "base/layout";
